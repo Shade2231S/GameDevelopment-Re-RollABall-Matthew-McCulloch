@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public Animator Gates1 = null;
+    public Animator Gates3 = null;
     public bool opentrigger = false;
 
     private void OnTriggerEnter(Collider other)
@@ -11,7 +11,7 @@ public class Trigger : MonoBehaviour
         {
             if (opentrigger)
             {
-                Gates1.Play("GateAnim", 0, 0.0f);
+                Gates3.Play("GateLower", 0, 0.0f);
                 gameObject.SetActive(false);
             }
         }
