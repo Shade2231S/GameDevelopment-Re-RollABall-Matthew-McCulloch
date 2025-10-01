@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-public class DrainerMovement : MonoBehaviour
+public class Follower : MonoBehaviour
 {
     public Transform Player;
     private NavMeshAgent navMeshAgent;

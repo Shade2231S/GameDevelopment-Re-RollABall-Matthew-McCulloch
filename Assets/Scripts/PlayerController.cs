@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public GameObject winTextObject;
@@ -10,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
+    public GameObject Restart;
     
     void Start()
     {
@@ -17,6 +20,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         SetCountText();
         winTextObject.SetActive(false);
+        Restart.SetActive(false);
     }
 
     void OnMove(InputValue MovementValue)
@@ -25,13 +29,15 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    void SetCountText()
+    public void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 24)
+        if (count >= 26)
         {
-            winTextObject.SetActive(true);
+            winTextObject.SetActive(true);         
             Destroy(GameObject.FindGameObjectWithTag("Attacker"));
+
+            Restart.gameObject.SetActive(true);   
         }
 
     }
@@ -58,8 +64,16 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             winTextObject.gameObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lost!";
-        }
+            Restart.gameObject.SetActive(true);
+        }            
     }
+    public void RestartFunction()
+    {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);           
+    }
+    
+        
+    
     void Update()
     {
         
