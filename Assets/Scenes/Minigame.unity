@@ -783,11 +783,11 @@ Transform:
   m_GameObject: {fileID: 113147805}
   serializedVersion: 2
   m_LocalRotation: {x: -0.71100146, y: -0, z: -0, w: 0.7031905}
-  m_LocalPosition: {x: 25.11, y: -0.18, z: -6.4317}
-  m_LocalScale: {x: 2.297638, y: 4.7370014, z: 2.382182}
+  m_LocalPosition: {x: 17.16123, y: -3.091245, z: -15.155233}
+  m_LocalScale: {x: 2.297638, y: 4.737002, z: 2.382182}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398203861}
   m_LocalEulerAnglesHint: {x: -90.633, y: 0, z: 0}
 --- !u!1001 &124062078
 PrefabInstance:
@@ -1711,6 +1711,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272676894}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &277046918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277046920}
+  - component: {fileID: 277046919}
+  m_Layer: 0
+  m_Name: Restart Function
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &277046919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277046918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b366cc04952040144a7c4dbea1b1f32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winTextObject: {fileID: 0}
+  speed: 0
+  countText: {fileID: 0}
+  Restart: {fileID: 0}
+--- !u!4 &277046920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277046918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 583.4929, y: 265.89832, z: -2.821413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &281635541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2546,6 +2594,7 @@ Transform:
   - {fileID: 342455325}
   - {fileID: 2068207253}
   - {fileID: 83223610}
+  - {fileID: 113147809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &403809080
@@ -3082,7 +3131,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1013915441}
+      - m_Target: {fileID: 277046919}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: RestartFunction
         m_Mode: 1
@@ -11705,5 +11754,5 @@ SceneRoots:
   - {fileID: 1453387420}
   - {fileID: 819300560}
   - {fileID: 707434017}
-  - {fileID: 113147809}
   - {fileID: 1191227032}
+  - {fileID: 277046920}

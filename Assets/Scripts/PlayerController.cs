@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 public class PlayerController : MonoBehaviour
 {
     public GameObject winTextObject;
@@ -22,7 +23,10 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
         Restart.SetActive(false);
     }
-
+    public void RestartFunction()
+    {   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }  
     void OnMove(InputValue MovementValue)
     {
         Vector2 movementVector = MovementValue.Get<Vector2>();
@@ -65,17 +69,13 @@ public class PlayerController : MonoBehaviour
             winTextObject.gameObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lost!";
             Restart.gameObject.SetActive(true);
+            
         }            
     }
-    public void RestartFunction()
-    {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);           
-    }
-    
-        
-    
     void Update()
     {
         
     }
+
+
 }
