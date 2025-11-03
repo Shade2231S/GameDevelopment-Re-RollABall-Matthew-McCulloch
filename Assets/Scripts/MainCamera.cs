@@ -1,53 +1,53 @@
 using Unity.VisualScripting;
 using UnityEngine;
-//using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+
 
 public class Camera : MonoBehaviour
 {
+    [SerializeField] private Camera cam;
     public GameObject player;
     private Vector3 offset;
-  //  public float Distance = 11.0f;
-   // public float rotationspeed = 10.0f;
- //   private float currentangle = 0f;
- //   public bool pressed = false;
+    public int movement;
 
-    [SerializeField] private Camera cam;
+    
     void Start()
     {
-    //    float horizontalInput = Input.GetAxis("Horizontal");
-      //  currentangle += horizontalInput * rotationspeed * Time.deltaTime;
+
         cam = GetComponent<Camera>();
         offset = transform.position - player.transform.position;
     }
-
+    void movementinput()
+    {
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            offset += (transform.forward * movement);
+        }
+        if(Input.GetKey(KeyCode.DownArrow))
+        {
+            offset += (transform.forward * -movement);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            offset += (transform.right * -movement);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            offset += (transform.right * movement);
+        }
+        transform.position = Vector3.Lerp(transform.position, offset, Time.deltaTime * movement);
+    }
 
     void LateUpdate()
     {
-        
-        transform.position = player.transform.position + offset;
-
-
+        if(player != null)
+        {
+           transform.position = player.transform.position + offset;
+        }
+    }
+    void Update()
+    {
+        movementinput();
 
     }
-  //  void Update()
-   // {
-
-     //   float x = player.transform.position.x + Distance * Mathf.Sin(currentangle * Mathf.Deg2Rad);
-     //   float z = player.transform.position.z + Distance * Mathf.Cos(currentangle * Mathf.Deg2Rad);
-     //   float y = transform.position.y;
-        
-
-      //  transform.position = new Vector3(x, y, z);
-        
-     //   if (Input.GetMouseButton(1))
-     //   {
-            
-            
-
-     //   }
-     //   if (Input.GetMouseButtonUp(1))
-      //  {
-            
-      //  }
- //   }
+    
 }

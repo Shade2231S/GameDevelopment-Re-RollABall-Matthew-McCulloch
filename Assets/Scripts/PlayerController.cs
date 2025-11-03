@@ -23,16 +23,13 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
         Restart.SetActive(false);
     }
-    public void RestartFunction()
-    {   
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }  
-    void OnMove(InputValue MovementValue)
-    {
-        Vector2 movementVector = MovementValue.Get<Vector2>();
-        movementX = movementVector.x;
-        movementY = movementVector.y;
-    }
+
+    //void OnMove(InputValue MovementValue)
+    //{
+    //    Vector2 movementVector = MovementValue.Get<Vector2>();
+    //    movementX = movementVector.x;
+    //    movementY = movementVector.y;
+    //}
     public void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
@@ -47,9 +44,23 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+
+        //rb.AddForce(movement * speed);
+
+        Vector3 movement = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))
+            movement += Vector3.forward;
+        if (Input.GetKey(KeyCode.S))
+            movement += Vector3.back;
+        if (Input.GetKey(KeyCode.A))
+            movement += Vector3.left;
+        if (Input.GetKey(KeyCode.D))
+            movement += Vector3.right;
 
         rb.AddForce(movement * speed);
+
     }
     void OnTriggerEnter(Collider other)
     {

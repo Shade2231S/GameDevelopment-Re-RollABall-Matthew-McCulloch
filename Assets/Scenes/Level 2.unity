@@ -233,13 +233,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 79731608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76f31447d6b46f408dd9bb92f036ee0, type: 3}
+  m_Script: {fileID: 11500000, guid: e1273ff1ee578ba40bb43f7a89ce6ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winTextObject: {fileID: 0}
-  speed: 0
-  countText: {fileID: 0}
-  Restart: {fileID: 0}
 --- !u!1001 &133478887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,20 +399,21 @@ PrefabInstance:
       propertyPath: m_Actions
       value: 
       objectReference: {fileID: -944628639613478452, guid: b57989a0846f50f47bc849788f74e930, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1047618395015265670, guid: 18842e5ea4836d842ac2c6ac89ff8dde, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1953610895896641498, guid: 18842e5ea4836d842ac2c6ac89ff8dde, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 164195161}
+      addedObject: {fileID: 164195153}
   m_SourcePrefab: {fileID: 100100000, guid: 18842e5ea4836d842ac2c6ac89ff8dde, type: 3}
 --- !u!1 &164195152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1953610895896641498, guid: 18842e5ea4836d842ac2c6ac89ff8dde, type: 3}
   m_PrefabInstance: {fileID: 164195151}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &164195161
+--- !u!114 &164195153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,11 +422,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 164195152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76f31447d6b46f408dd9bb92f036ee0, type: 3}
+  m_Script: {fileID: 11500000, guid: b366cc04952040144a7c4dbea1b1f32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winTextObject: {fileID: 133478889}
-  speed: 7.24
+  speed: 4.5
   countText: {fileID: 1300109607}
   Restart: {fileID: 1223208349}
 --- !u!1001 &317605021
@@ -662,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5668731099614607283, guid: 4e1dd77f2d66de648b32a61806eb45cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController2, Assembly-CSharp
+      value: Restart, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5758647604857657268, guid: 4e1dd77f2d66de648b32a61806eb45cc, type: 3}
       propertyPath: m_Name

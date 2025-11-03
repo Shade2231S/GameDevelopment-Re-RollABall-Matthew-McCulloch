@@ -24,10 +24,7 @@ public class PlayerController2 : MonoBehaviour
         winTextObject.SetActive(false);
         Restart.SetActive(false);
     }
-    public void RestartFunction()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
     void OnMove(InputValue MovementValue)
     {
         Vector2 movementVector = MovementValue.Get<Vector2>();
