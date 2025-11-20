@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    public float BounceHight = 300f;
+    public float BounceHight = 255f;
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

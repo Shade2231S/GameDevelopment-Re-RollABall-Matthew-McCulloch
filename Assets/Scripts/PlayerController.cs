@@ -1,9 +1,9 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 public class PlayerController : MonoBehaviour
 {
     public GameObject winTextObject;
@@ -13,23 +13,16 @@ public class PlayerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
-    public GameObject Restart;
-    
+    public GameObject restart;
+    public Transform cameraTransform;
     void Start()
     {
         count = 0;
         rb = GetComponent<Rigidbody>();
         SetCountText();
         winTextObject.SetActive(false);
-        Restart.SetActive(false);
+        restart.SetActive(false);
     }
-
-    //void OnMove(InputValue MovementValue)
-    //{
-    //    Vector2 movementVector = MovementValue.Get<Vector2>();
-    //    movementX = movementVector.x;
-    //    movementY = movementVector.y;
-    //}
     public void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
@@ -37,34 +30,32 @@ public class PlayerController : MonoBehaviour
         {
             winTextObject.SetActive(true);         
             Destroy(GameObject.FindGameObjectWithTag("Attacker"));
-
-            Restart.gameObject.SetActive(true);   
+            restart.gameObject.SetActive(true);   
         }
 
     }
     void FixedUpdate()
     {
-        //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-
-        //rb.AddForce(movement * speed);
-
-        Vector3 movement = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W))
-            movement += Vector3.forward;
-        if (Input.GetKey(KeyCode.S))
-            movement += Vector3.back;
-        if (Input.GetKey(KeyCode.A))
-            movement += Vector3.left;
-        if (Input.GetKey(KeyCode.D))
-            movement += Vector3.right;
-
-        rb.AddForce(movement * speed);
-
+        if (!Restart.isPaused)
+        {
+            float horizontal = 0f;
+            float vertical = 0f;
+            if (Input.GetKey(KeyCode.W)) vertical = 1f;
+            if (Input.GetKey(KeyCode.S)) vertical = -1f;
+            if (Input.GetKey(KeyCode.A)) horizontal = -1f;
+            if (Input.GetKey(KeyCode.D)) horizontal = 1f;
+            Vector3 camForward = cameraTransform.forward;
+            Vector3 camRight = cameraTransform.right;          
+            camForward.y = 0f;
+            camForward.Normalize();
+            camRight.y = 0f;
+            camRight.Normalize();                       
+            Vector3 moveDirection = (camForward * vertical + camRight * horizontal).normalized;
+            rb.AddForce(moveDirection * speed);
+        }
     }
     void OnTriggerEnter(Collider other)
-    {
-        
+    {     
         if (other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
@@ -79,13 +70,12 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             winTextObject.gameObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lost!";
-            Restart.gameObject.SetActive(true);
-            
+            restart.gameObject.SetActive(true);          
         }            
     }
     void Update()
     {
-        
+
     }
 
 
