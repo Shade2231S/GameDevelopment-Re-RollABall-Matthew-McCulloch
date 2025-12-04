@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     public GameObject restart;
+    public GameObject quit;
     public Transform cameraTransform;
     void Start()
     {
@@ -22,17 +23,33 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         winTextObject.SetActive(false);
         restart.SetActive(false);
+        quit.SetActive(false);
     }
     public void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 26)
+        Scene curentscene = SceneManager.GetActiveScene();
+        if (curentscene.buildIndex == 1)
         {
-            winTextObject.SetActive(true);         
-            Destroy(GameObject.FindGameObjectWithTag("Attacker"));
-            restart.gameObject.SetActive(true);   
+            countText.text = "Count: " + count.ToString();
+            if (count >= 26)
+            {
+                winTextObject.SetActive(true);
+                Destroy(GameObject.FindGameObjectWithTag("Attacker"));
+                restart.gameObject.SetActive(true);
+                quit.gameObject.SetActive(true);
+            }
         }
-
+        else if (curentscene.buildIndex == 2)
+        {
+            countText.text = "Count: " + count.ToString();
+            if (count >= 14)
+            {
+                winTextObject.SetActive(true);
+                Destroy(GameObject.FindGameObjectWithTag("Attacker"));
+                restart.gameObject.SetActive(true);
+                quit.gameObject.SetActive(true);
+            }
+        }
     }
     void FixedUpdate()
     {
@@ -70,7 +87,8 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             winTextObject.gameObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lost!";
-            restart.gameObject.SetActive(true);          
+            restart.gameObject.SetActive(true);
+            quit.gameObject.SetActive(true);
         }            
     }
     void Update()

@@ -7,39 +7,39 @@ using NUnit.Framework;
 
 public class Restart : MonoBehaviour
 {
-    public GameObject pausemenu;
+    public GameObject pause;
     public static bool isPaused;
     public GameObject player;
-    public GameObject restartbutton;
+    public GameObject restart;
     public GameObject pausetext;
-    public GameObject quittomenu;
+    public GameObject quit;
     void Start()
     {
         PlayerController playerController = player.GetComponent<PlayerController>();
         isPaused = false;
-        pausemenu.SetActive(false);
-        restartbutton.gameObject.SetActive(false);
+        pause.SetActive(false);
+        restart.gameObject.SetActive(false);
         pausetext.gameObject.SetActive(false);
-        quittomenu.gameObject.SetActive(false);
+        quit.gameObject.SetActive(false);
     }
 
     public void Pause()
     {
-        pausemenu.SetActive(true);
+        pause.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        restartbutton.gameObject.SetActive(true);
+        restart.gameObject.SetActive(true);
         pausetext.gameObject.SetActive(true);
-        quittomenu.gameObject.SetActive(true);
+        quit.gameObject.SetActive(true);
     }
     public void Resume() 
     {
-        pausemenu.SetActive(false);
+        pause.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        restartbutton.gameObject.SetActive(false);
+        restart.gameObject.SetActive(false);
         pausetext.gameObject.SetActive(false);
-        quittomenu.gameObject.SetActive(false);
+        quit.gameObject.SetActive(false);
     }
     public void RestartFunction()
     {

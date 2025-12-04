@@ -313,8 +313,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+      - m_Target: {fileID: 1431396522}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ChangeRes
         m_Mode: 1
         m_Arguments:
@@ -2357,9 +2357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpstext: {fileID: 188221666}
-  pullingtime: 0.8
-  time: 0
-  framecount: 0
 --- !u!1 &1728464391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,8 +2985,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+      - m_Target: {fileID: 1431396522}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ChangeFullscreen
         m_Mode: 1
         m_Arguments:
@@ -3280,7 +3277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Don't Press!)
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
